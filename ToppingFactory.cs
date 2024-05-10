@@ -7,26 +7,37 @@ namespace PizzaMaker
 {
     public class ToppingFactory
     {
+        public enum Topping 
+        {
+            
+            Mushroom = 1,
+            Olive = 2,
+            MozzarellaCheese = 3,            
+            Pineapple = 4,
+            Tomato = 5,
+            BulgarianCheese = 6
+        }
+        
         internal static IPizza CreatePizzaTopping(string toppingNumberFromMenu, IPizza myPizza)
         {
             switch (toppingNumberFromMenu)
             {
-                case "1":
+                case Topping.Mushroom:
                     myPizza = new MushroomToppingDecorator(myPizza);
                     break;
-                case "2":
+                case Topping.Olive:
                     myPizza = new OliveToppingDecorator(myPizza);
                     break;
-                case "3":
+                case Topping.MozzarellaCheese:
                     myPizza = new MozzarellaCheeseToppingDecorator(myPizza);
                     break;
-                case "4":
+                case Topping.Pineapple:
                     myPizza = new PineappleToppingDecorator(myPizza);
                     break;
-                case "5":
+                case Topping.Tomato:
                     myPizza = new TomatoToppingDecorator(myPizza);
                     break;
-                case "6":
+                case Topping.BulgarianCheese:
                     myPizza = new BulgarianCheeseDecorator(myPizza);
                     break;
             }
